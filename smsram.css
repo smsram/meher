@@ -1,26 +1,189 @@
-*{background-color: aliceblue;
-margin: 0px;
-padding: 0px;
-width: 100%;
-height: 100%;
-justify-content: center;
-align-items: center;
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.loading{position: absolute;
-width: 100%;
-height: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: chocolate;
-z-index: 6;
-
+:root{
+    --bg-color: black;
+    --box-color: rgb(135, 235, 227);
+    --text-color: white;
 }
-.loading img{
+.container{
+    height: 100vh;
     width: 100%;
-    height: 100%;
+    background: var(--bg-color);
+    position: relative;
+    overflow: hidden;
 }
-.content{
-    display: none;
+.container h1{
+    color: var(--text-color);
+    position: absolute;
+    top: 2rem;
+    left: 46%;
+}
+.line{
+    height: 100vh;
+    width: 0.4rem;
+    background: var(--text-color);
+    position: absolute;
+    left: 49.6%;
+    top: 5.4rem;
+    border-radius: 8px;
+}
+.line span{
+    height: 0.8rem;
+    width: 0.8rem;
+    background: var(--text-color);
+    top: 0;
+    left: -0.2rem;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    transition: 0.2s ease;
+}
+.line :nth-child(1){
+    top: 6rem;
+}
+.line :nth-child(2){
+    top: 12rem;
+}
+.line :nth-child(3){
+    top: 20rem;
+}
+.line :nth-child(4){
+    top: 28rem;
+}
+.container .ani-line1{
+    height: 0.4rem;
+    width: 0.4rem;
+    position: absolute;
+    background: var(--text-color);
+    top: 11.6rem;
+    right: 49.8%;
+    transition: 0.2s ease;
+}
+.container .line:hover span{
+    animation: multi-w-g 1s ease-in infinite;
+}
+@keyframes multi-w-g {
+    1%{
+        background: var(--box-color);
+    }
+    50%{
+        background: var(--box-color);
+    }
+    51%{
+        background: var(--text-color);
+    }
+    100%{
+        background: var(--text-color);
+    }
+}
+.container .line:hover ~ .ani-line1{
+    padding-left: 10%;
+}
+.container .line:hover ~ .box1{
+    background: var(--text-color);
+}
+.box1, .box2, .box3, .box4{
+    height: 8rem;
+    width: 44%;
+    background: var(--box-color);
+    border-radius: 8px;
+    position: absolute;
+    transition-delay: 0.2s;
+}
+.box1{
+    left: 3%;
+    top: 6.8rem;
+    border: 2px solid var(--text-color);
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+.box1:hover{
+    transform: scale(1.04);
+    box-shadow: 0 0 2rem var(--text-color);
+    overflow-y: scroll;
+}
+.box2{
+    right: 3%;
+    top: 14rem;
+    border: 2px solid var(--text-color);
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+.box2:hover{
+    transform: scale(1.04);
+    box-shadow: 0 0 2rem var(--text-color);
+    overflow-y: scroll;
+}
+.box3{
+    left: 3%;
+    top: 21rem;
+    border: 2px solid var(--text-color);
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+.box3:hover{
+    transform: scale(1.04);
+    box-shadow: 0 0 2rem var(--text-color);
+    overflow-y: scroll;
+}
+.box4{
+    right: 3%;
+    top: 28rem;
+    border: 2px solid var(--text-color);
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+.box4:hover{
+    transform: scale(1.04);
+    box-shadow: 0 0 2rem var(--text-color);
+    overflow-y: scroll;
+}
+
+/* dimension edjustment */
+@media(max-width: 600px){
+    .container{
+        height: 200vh;
+    }
+    .line{
+        left: 98%;
+        height: 100%;
+    }
+    .box1{
+        top: 9rem;
+        width: 92%;
+        left: 3%;
+    }
+    .box2{
+        top: 22rem;
+        width: 92%;
+        left: 3%;
+    }
+    .box3{
+        top: 34.4rem;
+        width: 92%;
+        left: 3%;
+    }
+    .box4{
+        top: 47rem;
+        width: 92%;
+        left: 3%;
+    }
+    .line :nth-child(1){
+        top: 7.2rem;
+    }
+    .line :nth-child(2){
+        top: 20.6rem;
+    }
+    .line :nth-child(3){
+        top: 32.8rem;
+    }
+    .line :nth-child(4){
+        top: 45.6rem;
+    }
+    .container h1{
+        left: 36%;
+    }
 }
